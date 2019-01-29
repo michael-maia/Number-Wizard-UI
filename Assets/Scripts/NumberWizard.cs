@@ -15,32 +15,33 @@ public class NumberWizard : MonoBehaviour
 
     // Use this for initialization
     void Start ()
-    {
-        StartGame();
-    }    
+    {        
+        StartGame();        
+    }
 
     void StartGame()
     {
-        guess = (max + min) / 2; //Primeira sugestão de número
-        guessText.text = guess.ToString(); //Converte o resultado para o formato string pois assim no objeto GuessText
-        max = max + 1;
+        NextGuess();
+        
     }
 
     public void OnPressHigher()
     {
-        min = guess; //Muda o mínimo do nosso intervalo para ficar mais preciso o próximo "chute"
+        //Muda o mínimo do nosso intervalo para ficar mais preciso o próximo palpite
+        min = guess + 1; //O +1 serve para que o computador não use os palpites durante a escolha
         NextGuess();
     }
 
     public void OnPressLower()
     {
-        max = guess; //Muda o máximo do nosso intervalo para ficar mais preciso o próximo "chute"
+        //Muda o máximo do nosso intervalo para ficar mais preciso o próximo palpite
+        max = guess - 1; //O -1 serve para que o computador não use os palpites durante a escolha
         NextGuess();
     }
 
     void NextGuess()
     {
-        guess = (max + min) / 2;
-        guessText.text = guess.ToString(); //Atualizando o valor na tela
+        guess = UnityEngine.Random.Range(min, max + 1); //Gerador de números aleatórios
+        guessText.text = guess.ToString();  //Converte o resultado para string pois o GuessText é uma string               
     }
 }
