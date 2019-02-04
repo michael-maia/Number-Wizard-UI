@@ -28,14 +28,14 @@ public class NumberWizard : MonoBehaviour
     public void OnPressHigher()
     {
         //Muda o mínimo do nosso intervalo para ficar mais preciso o próximo palpite
-        min = guess + 1; //O +1 serve para que o computador não use os palpites durante a escolha
+        min = guess + 1; //O +1 serve para que o computador não use os palpites na próxima escolha
         NextGuess();
     }
 
     public void OnPressLower()
     {
         //Muda o máximo do nosso intervalo para ficar mais preciso o próximo palpite
-        max = guess - 1; //O -1 serve para que o computador não use os palpites durante a escolha
+        max = guess - 1; //O -1 serve para que o computador não use os palpites na próxima escolha
         NextGuess();
     }
 
